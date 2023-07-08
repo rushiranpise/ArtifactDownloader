@@ -14,14 +14,12 @@
     // Function to handle the URL redirection
     function redirectGitHubUrl(url) {
         // Extract the username, repo, and run ID from the URL
-        var matchResult = url.match(/https:\/\/github\.com\/([^/]+)\/([^/]+)\/actions\/runs\/([^/]+)/);
+        const matchResult = url.match(/https:\/\/github\.com\/([^/]+)\/([^/]+)\/actions\/runs\/([^/]+)/);
         if (matchResult) {
-            var username = matchResult[1];
-            var repo = matchResult[2];
-            var runId = matchResult[3];
+            const [, username, repo, runId] = matchResult;
 
             // Build the new URL
-            var newUrl = 'https://nightly.link/' + username + '/' + repo + '/actions/runs/' + runId;
+            const newUrl = `https://nightly.link/${username}/${repo}/actions/runs/${runId}`;
 
             // Redirect to the new URL
             window.location.replace(newUrl);
@@ -30,9 +28,9 @@
 
     // Event listener for click events on run links
     document.addEventListener('click', function(event) {
-        var target = event.target;
+        const target = event.target;
         if (target.tagName === 'A') {
-            var url = target.href;
+            const url = target.href;
 
             // Check if the clicked link is a run link
             if (url.includes('/actions/runs/')) {

@@ -1,9 +1,9 @@
 # Artifact Downloader
-Downloads GitHub action artifacts without login using nightly.link
+A userscript to download GitHub Action artifacts without login using nightly.link
 
 ## Requires
 
-Tamper monkey Extension
+[Tamper Monkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
 ## Install
 
