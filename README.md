@@ -9,4 +9,4 @@ A userscript to download GitHub Action artifacts without login using nightly.lin
 
 [Desktop Users](https://github.com/rushiranpise/ArtifactDownloader/raw/main/ArtifactDownloader.user.js)
 
-[Android Users](https://github.com/rushiranpise/ArtifactDownloader/raw/main/ArtifactDownloader.user.js)
+[Android Users](https://github.com/rushiranpise/ArtifactDownloader/raw/main/android.user.js)
