@@ -14,8 +14,8 @@
 
     // Function to handle the URL redirection
     function redirectGitHubUrl(url) {
-    // Check if the current page ends with "actions"
-    const isActionsPage = window.location.href.endsWith('/actions');
+        // Check if the current page ends with "actions"
+        const isActionsPage = window.location.href.endsWith('/actions');
 
         // Extract the username, repo, and run ID from the URL
         const matchResult = url.match(/https:\/\/github\.com\/([^/]+)\/([^/]+)\/actions\/runs\/([^/]+)/);
@@ -25,18 +25,23 @@
             // Build the new URL
             const newUrl = `https://nightly.link/${username}/${repo}/actions/runs/${runId}`;
 
-        // Ask for confirmation before redirecting
-        const confirmation = confirm(`Do you want to redirect to ${newUrl}?`);
-        if (confirmation) {
-            // Redirect to the new URL
-            window.location.replace(newUrl);
+            // Add a delay of 5 seconds before asking for confirmation
+            setTimeout(() => {
+                // Ask for confirmation before redirecting
+                const confirmation = confirm(`Do you want to redirect to ${newUrl}?`);
+                if (confirmation) {
+                    // Redirect to the new URL
+                    window.location.replace(newUrl);
+                } else if (isActionsPage) {
+                    // Continue with the original link if on the actions page
+                    window.location.href = url;
+                }
+            }, 5000);
         } else if (isActionsPage) {
             // Continue with the original link if on the actions page
             window.location.href = url;
         }
     }
-}
-
 
     // Event listener for click events on run links
     document.addEventListener('click', function(event) {
